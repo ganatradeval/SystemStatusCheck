@@ -18,13 +18,14 @@ for i in command:
 	status,out = getstatusoutput(i)
 	if status == 1 :
 		print (i[3], "is NOT working")
+		message += i[3] + "is NOT working\n"
 	else:
 		if out.find('time=') == -1:
 			print (i[3], "is NOT working\n")
 			message += i[3] + "is NOT working"
 		else:
 			print (i[3], "is working fine")
-			message += i[3] + "is NOT working\n"
+			
 #Create format of slack message request
 slack_message = {
        'channel': SLACK_CHANNEL,
